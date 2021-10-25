@@ -1,0 +1,80 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  }, 
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "quotes": [
+          "error",
+          "single",
+          {
+            "allowTemplateLiterals": true
+          }
+        ],
+        "no-multiple-empty-lines": ["error", { "max": 1, "maxBOF": 1 }],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+        "prettier/prettier": [ 
+          "error", 
+          { 
+            "trailingComma": "es5",
+            "endOfLine": "auto",
+            "printWidth": 80
+          } 
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {
+        "prettier/prettier": [ 
+          "error", 
+          { 
+            "trailingComma": "es5",
+            "endOfLine": "auto"
+          } 
+        ]
+      }
+    }
+  ],
+  "extends": [
+    "plugin:prettier/recommended"
+  ]
+}
