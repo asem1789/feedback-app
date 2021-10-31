@@ -3,9 +3,6 @@
   "ignorePatterns": [
     "projects/**/*"
   ],
-  "parserOptions": {
-    "ecmaVersion": 2020
-  }, 
   "overrides": [
     {
       "files": [
@@ -60,21 +57,26 @@
       "files": [
         "*.html"
       ],
+      "excludedFiles": ["*inline-template-*.component.html"],
+      "parser": "@angular-eslint/template-parser",
+      "parserOptions": {
+        "project": "./tsconfig.app.json",
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+      },
+      "plugins": ["@angular-eslint/template"],
       "extends": [
-        "plugin:@angular-eslint/template/recommended"
+        "plugin:prettier/recommended"
       ],
       "rules": {
         "prettier/prettier": [ 
           "error", 
           { 
-            "trailingComma": "es5",
+            "parser": "angular",
             "endOfLine": "auto"
           } 
         ]
       }
     }
-  ],
-  "extends": [
-    "plugin:prettier/recommended"
   ]
 }
