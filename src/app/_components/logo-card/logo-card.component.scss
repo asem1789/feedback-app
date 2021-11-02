@@ -1,0 +1,27 @@
+.logo-card {
+  width: 22rem;
+  height: 22rem;
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;  
+  background: 
+    radial-gradient(farthest-side at 0% 100%, #488aef 70%, transparent),
+    radial-gradient(farthest-side at 100% 0%, #da4b8c 15%, #ad1fea 50%, transparent),
+    radial-gradient(farthest-side at 0% 0%, #7ab3f9, transparent),
+    radial-gradient(farthest-side at 100% 100%, #f49f85, transparent);
+
+
+  &__title {
+    color: var(--color-white);
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  &__sub-title {
+    color: var(--gray-05);
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+}

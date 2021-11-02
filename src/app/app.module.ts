@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './shared/material/material.module';
+import { LogoCardComponent } from './_components/logo-card/logo-card.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LogoCardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
