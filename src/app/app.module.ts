@@ -7,9 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './shared/material/material.module';
 import { LogoCardComponent } from './_components/logo-card/logo-card.component';
+import { FilterCardComponent } from './_components/filter-card/filter-card.component';
 
 @NgModule({
-  declarations: [AppComponent, LogoCardComponent],
+  declarations: [AppComponent, LogoCardComponent, FilterCardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

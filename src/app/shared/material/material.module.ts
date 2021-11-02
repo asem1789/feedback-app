@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SuggestionIcon } from 'src/assets/icons/svgs';
-
-const Mat_Module = [MatIconModule];
+import { MatButtonModule } from '@angular/material/button';
+const Mat_Module = [MatIconModule, MatButtonModule];
 
 const CustomIcons = [{ name: 'suggestion_icon', svg: SuggestionIcon }];
 

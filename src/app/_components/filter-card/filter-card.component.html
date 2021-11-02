@@ -1,0 +1,10 @@
+<div class="filter-card">
+  <button
+    *ngFor="let option of OPTIONS"
+    class="filter-card__button"
+    [class.btn-active]="selected == option"
+    (click)="selectOption(option)"
+  >
+    {{ option }}
+  </button>
+</div>
