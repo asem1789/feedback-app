@@ -1,10 +1,14 @@
 @import "custom-theme.scss";
 
 :root {
-  --color-primary: #373f68;
-  --color-accent: #4661e6;
-
+  --color-primary: #AD1FEA;
+  --color-accent: #373f68;
+  
   --color-warn: #f44336;
+
+  // text-color
+  --text-primary: #AD1FEA;
+  --text-accent: #647196;
 
   // Special color
   --bg-body: #f2f4ff;
@@ -40,6 +44,7 @@ body {
   background-color: var(--bg-body);
   font-family: 'Jost', sans-serif;
   font-weight: 400;
+  color: #647196;
 }
 
 /**======================*/
@@ -55,5 +60,34 @@ dl {
 
 
 /**======================*/
-// Reusable Style
+// Reusable Components
 /**======================*/
+.btn {
+  border: 0;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  border-radius: 8px;
+  font-weight: 700;
+
+  &:hover,
+  &:active {
+    cursor: pointer;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__primary {
+    background-color: #AD1FEA;
+    color: #fff;
+    transition: all .4s;
+    
+    &:hover,
+    &:active {
+      background-color: #c75af6;      
+    }
+  }
+}

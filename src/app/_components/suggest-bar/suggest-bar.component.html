@@ -1,0 +1,29 @@
+<div class="suggest">
+  <div class="suggest__info">
+    <mat-icon svgIcon="suggestion_icon"></mat-icon>
+    <h2 class="suggest__title">7 Suggestion</h2>
+  </div>
+  <div class="suggest__select">
+    <label class="label">Sort By:</label>
+    <div class="suggest__sort-btn" (click)="toggleList()">
+      <span class="select-value">{{ selected }}</span>
+      <mat-icon>expand_more</mat-icon>
+    </div>
+    <ul *ngIf="showList" class="sort__list">
+      <li
+        class="sort__item"
+        [class.sort__item-active]="selected === option"
+        *ngFor="let option of OPTIONS"
+        (click)="selectOption(option)"
+      >
+        <span class="sort__text">{{ option }}</span>
+        <mat-icon *ngIf="selected === option">done</mat-icon>
+      </li>
+    </ul>
+  </div>
+  <!-- <app-select></app-select> -->
+  <button class="btn btn__icon btn__primary">
+    <mat-icon>add</mat-icon>
+    <span>Add Feedback</span>
+  </button>
+</div>

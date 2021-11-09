@@ -1,0 +1,13 @@
+<div class="map-card">
+  <div class="map-card__header">
+    <h2 class="map-card__title">Roadmap</h2>
+    <a class="map-card__link" routerLink="/">View</a>
+  </div>
+  <ul class="map-card__list">
+    <li *ngFor="let item of STATUS" class="map-card__item">
+      <div [class]="'map-card__circle map-card__circle-' + item.class"></div>
+      <span class="map-card__name">{{ item.text }}</span>
+      <span class="map-card__lenght">{{ item.length }}</span>
+    </li>
+  </ul>
+</div>

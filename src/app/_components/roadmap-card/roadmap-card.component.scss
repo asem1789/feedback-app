@@ -1,0 +1,60 @@
+.map-card {
+  width: 22rem;
+  height: 18rem;
+  border-radius: 10px;
+  padding: 25px;
+  background-color: #fff;
+  font-size: 1.6rem;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    color: #3a4374;
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
+
+  &__link {
+    color: #4661e6;
+  }
+
+  &__circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+    &-orange {
+      background-color: #f49f85;
+    }
+
+    &-violet {
+      background-color: #ad1fea;
+    }
+
+    &-blue {
+      background-color: #62bcfa;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__name {
+    flex: 1;
+  }  
+}
