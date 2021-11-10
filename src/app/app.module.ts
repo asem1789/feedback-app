@@ -10,8 +10,8 @@ import { LogoCardComponent } from './_components/logo-card/logo-card.component';
 import { FilterCardComponent } from './_components/filter-card/filter-card.component';
 import { RoadmapCardComponent } from './_components/roadmap-card/roadmap-card.component';
 import { SuggestBarComponent } from './_components/suggest-bar/suggest-bar.component';
-import { SelectComponent } from './_components/select/select.component';
 import { CommonModule } from '@angular/common';
+import { ClickOutsideDirective } from './shared/directives/click-outside.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { CommonModule } from '@angular/common';
     FilterCardComponent,
     RoadmapCardComponent,
     SuggestBarComponent,
-    SelectComponent,
+    ClickOutsideDirective,
   ],
   imports: [
     BrowserModule,

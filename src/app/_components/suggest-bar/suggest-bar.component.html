@@ -5,11 +5,17 @@
   </div>
   <div class="suggest__select">
     <label class="label">Sort By:</label>
-    <div class="suggest__sort-btn" (click)="toggleList()">
+    <div #toggle class="suggest__sort-btn" (click)="toggleList()">
       <span #value class="select-value">{{ selected.text }}</span>
       <mat-icon>expand_more</mat-icon>
     </div>
-    <ul *ngIf="showList" class="sort__list">
+    <ul
+      *ngIf="showList"
+      class="sort__list"
+      appClickOutside
+      [toggle]="toggle"
+      (clicked)="showList = false"
+    >
       <li
         class="sort__item"
         [class.sort__item-active]="selected.value === option.value"
@@ -21,7 +27,6 @@
       </li>
     </ul>
   </div>
-  <!-- <app-select></app-select> -->
   <button class="btn btn__icon btn__primary">
     <mat-icon>add</mat-icon>
     <span>Add Feedback</span>
