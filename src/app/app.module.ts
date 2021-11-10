@@ -11,6 +11,7 @@ import { FilterCardComponent } from './_components/filter-card/filter-card.compo
 import { RoadmapCardComponent } from './_components/roadmap-card/roadmap-card.component';
 import { SuggestBarComponent } from './_components/suggest-bar/suggest-bar.component';
 import { SelectComponent } from './_components/select/select.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SelectComponent } from './_components/select/select.component';
     BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SortTypes } from 'src/app/models/sort-types';
 
 @Component({
@@ -8,23 +8,25 @@ import { SortTypes } from 'src/app/models/sort-types';
 })
 export class SuggestBarComponent implements OnInit {
   OPTIONS = [
-    'Most Upvotes',
-    'Least Upvotes',
-    'Most Comments',
-    'Least Comments',
+    { text: 'Most Upvotes', value: 'most-upvotes' },
+    { text: 'Least Upvotes', value: 'least-upvotes' },
+    { text: 'Most Comments', value: 'most-comments' },
+    { text: 'Least Comments', value: 'least-comments' },
   ];
 
-  selected: string = 'Most Upvotes';
+  selected: SortTypes = { text: 'Most Upvotes', value: 'most-upvotes' };
   showList: boolean = false;
 
   constructor() {}
 
+  @ViewChild('value') value!: ElementRef;
+
   ngOnInit(): void {}
 
-  selectOption(value: string) {
-    this.selected = value;
-    console.log(value);
-    //   this.showList = false;
+  selectOption(option: SortTypes) {
+    this.selected = option;
+    this.value.nativeElement.textContent = option.text;
+    this.showList = false;
   }
 
   toggleList() {

@@ -6,18 +6,18 @@
   <div class="suggest__select">
     <label class="label">Sort By:</label>
     <div class="suggest__sort-btn" (click)="toggleList()">
-      <span class="select-value">{{ selected }}</span>
+      <span #value class="select-value">{{ selected.text }}</span>
       <mat-icon>expand_more</mat-icon>
     </div>
     <ul *ngIf="showList" class="sort__list">
       <li
         class="sort__item"
-        [class.sort__item-active]="selected === option"
+        [class.sort__item-active]="selected.value === option.value"
         *ngFor="let option of OPTIONS"
         (click)="selectOption(option)"
       >
-        <span class="sort__text">{{ option }}</span>
-        <mat-icon *ngIf="selected === option">done</mat-icon>
+        <span class="sort__text">{{ option.text }}</span>
+        <mat-icon *ngIf="selected.value === option.value">done</mat-icon>
       </li>
     </ul>
   </div>
