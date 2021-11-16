@@ -1,0 +1,23 @@
+<div class="feed-card">
+  <button
+    (click)="toggleVote()"
+    class="feed-card__vote"
+    [class.feed-card__btn-active]="voteClicked"
+  >
+    <mat-icon color="accent" class="feed-card__vote-icon">expand_less</mat-icon>
+    <span class="feed-card__vote-num">{{ countVotes }}</span>
+  </button>
+  <div class="feed-card__content">
+    <h2 class="feed-card__title">Add tags for solutions</h2>
+    <p class="feed-card__text">
+      Easier to search for solutions based on a specific stack.
+    </p>
+    <button class="feed-card__tag-btn" disabled>
+      <span>Enhancement</span>
+    </button>
+  </div>
+  <div class="feed-card__comment">
+    <mat-icon class="feed-card__comment-icon" svgIcon="comment_icon"></mat-icon>
+    <span class="feed-card__comment-span">2</span>
+  </div>
+</div>

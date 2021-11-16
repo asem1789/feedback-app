@@ -12,6 +12,7 @@ import { RoadmapCardComponent } from './_components/roadmap-card/roadmap-card.co
 import { SuggestBarComponent } from './_components/suggest-bar/suggest-bar.component';
 import { CommonModule } from '@angular/common';
 import { ClickOutsideDirective } from './shared/directives/click-outside.directive';
+import { FeedbackCardComponent } from './_components/feedback-card/feedback-card.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ClickOutsideDirective } from './shared/directives/click-outside.directi
     RoadmapCardComponent,
     SuggestBarComponent,
     ClickOutsideDirective,
+    FeedbackCardComponent,
   ],
   imports: [
     BrowserModule,

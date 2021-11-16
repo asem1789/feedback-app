@@ -8,7 +8,9 @@
 
   // text-color
   --text-primary: #AD1FEA;
+  
   --text-accent: #647196;
+  --text-accent-dark: #3A4374;
 
   // Special color
   --bg-body: #f2f4ff;
@@ -56,6 +58,24 @@ ul,
 dl {
   margin: 0;
   list-style-type: none;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+
+  &:active {
+    outline: none;
+  }
+}
+
+/**======================*/
+// Override Angular material
+/**======================*/
+.mat-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
