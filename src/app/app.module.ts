@@ -13,16 +13,25 @@ import { SuggestBarComponent } from './_components/suggest-bar/suggest-bar.compo
 import { CommonModule } from '@angular/common';
 import { ClickOutsideDirective } from './shared/directives/click-outside.directive';
 import { FeedbackCardComponent } from './_components/feedback-card/feedback-card.component';
+import { HomeModule } from './_modules/home/home.module';
+import { CreateFeedbackComponent } from './_modules/create-feedback/create-feedback.component';
+import { SelectComponent } from './_components/select/select.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CreateFeedbackModule } from './_modules/create-feedback/create-feedback.module';
+// import { SideBarComponent } from './_components/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LogoCardComponent,
-    FilterCardComponent,
-    RoadmapCardComponent,
-    SuggestBarComponent,
-    ClickOutsideDirective,
-    FeedbackCardComponent,
+    // CreateFeedbackComponent,
+    // SelectComponent,
+    // SideBarComponent,
+    // LogoCardComponent,
+    // FilterCardComponent,
+    // RoadmapCardComponent,
+    // SuggestBarComponent,
+    // ClickOutsideDirective,
+    // FeedbackCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +40,7 @@ import { FeedbackCardComponent } from './_components/feedback-card/feedback-card
     FlexLayoutModule,
     MaterialModule,
     CommonModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -4,11 +4,16 @@
   background-color: #373f68;
   color: #fff;
   border-radius: 8px;
+  width: 100%;
+  padding: 1.5rem 2.5rem;
+
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  width: 100%;
-  padding: 1.5rem 2.5rem;
+
+  @include respond(mobile){
+    border-radius: 0;
+  }
 
   &__info {
     display: flex;
