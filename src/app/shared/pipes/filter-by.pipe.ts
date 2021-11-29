@@ -10,6 +10,9 @@ export class FilterByPipe implements PipeTransform {
       return items;
     }
 
+    console.log('pipe: ', items);
+    console.log('pipe: ', type);
+
     let sortedItems!: Feedback[];
     switch (type) {
       case 'most-upvotes':

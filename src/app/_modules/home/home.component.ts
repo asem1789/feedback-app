@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
     this.feedbackData = this.feedService.getAllFeedback() || [];
 
     this.feedService.feedbackChange.subscribe((feeds) => {
+      console.log(21, 'home component: feed: ', feeds);
       this.feedbackData = feeds;
     });
   }

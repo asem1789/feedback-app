@@ -56,16 +56,20 @@
         </span>
         <textarea
           [class.border-error]="
-            f.comments.invalid && (f.comments.touched || f.comments.dirty)
+            f.description.invalid &&
+            (f.description.touched || f.description.dirty)
           "
           class="form-field__input form-field__input-text"
           draggable="false"
           cols="10"
           rows="5"
-          formControlName="comments"
+          formControlName="description"
         ></textarea>
         <div
-          *ngIf="f.comments.invalid && (f.comments.touched || f.comments.dirty)"
+          *ngIf="
+            f.description.invalid &&
+            (f.description.touched || f.description.dirty)
+          "
           class="form-field__error-box"
         >
           <span class="form-field__error-text">Comments is required</span>

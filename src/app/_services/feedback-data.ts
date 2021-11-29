@@ -69,7 +69,7 @@ export const feedbackData: Feedback[] = [
     category: 'feature',
     description:
       'It would help people with light sensitivities and who prefer dark mode.',
-    votes: 55,
+    votes: 31,
     status: 'suggestion',
     comments: [
       {

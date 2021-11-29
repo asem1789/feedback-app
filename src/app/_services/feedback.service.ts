@@ -28,4 +28,14 @@ export class FeedbackService {
   getAllFeedback() {
     return this.feedback;
   }
+
+  addFeedback(obj: Feedback) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        this.feedback = [...this.feedback, obj];
+        this.feedbackChange.next(this.feedback);
+        return resolve({ status: 'success' });
+      }, 500);
+    });
+  }
 }

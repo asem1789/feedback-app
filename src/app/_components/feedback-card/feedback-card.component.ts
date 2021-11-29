@@ -8,12 +8,14 @@ import { Feedback } from 'src/app/models/feedback';
 })
 export class FeedbackCardComponent implements OnInit {
   @Input() feedback!: Feedback;
-  countVotes: number = 12;
+  countVotes!: number;
   voteClicked: boolean = false;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.countVotes = this.feedback.votes || 0;
+  }
 
   toggleVote() {
     if (!this.voteClicked) {
