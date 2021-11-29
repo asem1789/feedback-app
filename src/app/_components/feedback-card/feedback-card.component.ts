@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Feedback } from 'src/app/models/feedback';
 
 @Component({
   selector: 'app-feedback-card',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feedback-card.component.scss'],
 })
 export class FeedbackCardComponent implements OnInit {
+  @Input() feedback!: Feedback;
   countVotes: number = 12;
   voteClicked: boolean = false;
+
   constructor() {}
 
   ngOnInit(): void {}

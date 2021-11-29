@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Feedback } from 'src/app/models/feedback';
+import { FeedbackService } from 'src/app/_services/feedback.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   isSideOpen: boolean = false;
-  constructor() {}
+  feedbackData: Feedback[] = [];
 
-  ngOnInit(): void {}
+  constructor(private feedService: FeedbackService) {}
+
+  ngOnInit(): void {
+    this.feedbackData = this.feedService.getAllFeedback();
+
+    this.feedService.feedbackChange.subscribe((feeds) => {
+      this.feedbackData = feeds;
+    });
+  }
 
   toggleSide() {
     this.isSideOpen = !this.isSideOpen;

@@ -26,6 +26,7 @@
       class="select__item"
       *ngFor="let option of options"
       (click)="selectOption(option)"
+      #listItem
     >
       {{ option }}
     </li>

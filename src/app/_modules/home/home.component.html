@@ -23,11 +23,11 @@
   <div class="home__right">
     <app-suggest-bar></app-suggest-bar>
     <div class="home__cards">
-      <app-feedback-card class="home__card"></app-feedback-card>
-      <app-feedback-card class="home__card"></app-feedback-card>
-      <app-feedback-card class="home__card"></app-feedback-card>
-      <app-feedback-card class="home__card"></app-feedback-card>
-      <app-feedback-card class="home__card"></app-feedback-card>
+      <app-feedback-card
+        *ngFor="let feed of feedbackData"
+        [feedback]="feed"
+        class="home__card"
+      ></app-feedback-card>
     </div>
     <div *ngIf="isSideOpen" (click)="isSideOpen = false" class="overlay"></div>
   </div>

@@ -1,6 +1,9 @@
 import {
+  AfterContentInit,
   Component,
   ElementRef,
+  HostBinding,
+  HostListener,
   Input,
   OnInit,
   Renderer2,
