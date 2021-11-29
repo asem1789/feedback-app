@@ -21,10 +21,10 @@
     <app-roadmap-card></app-roadmap-card>
   </div>
   <div class="home__right">
-    <app-suggest-bar></app-suggest-bar>
+    <app-suggest-bar (option)="sortBy($event)"></app-suggest-bar>
     <div class="home__cards">
       <app-feedback-card
-        *ngFor="let feed of feedbackData"
+        *ngFor="let feed of feedbackData | filterBy: sorted"
         [feedback]="feed"
         class="home__card"
       ></app-feedback-card>

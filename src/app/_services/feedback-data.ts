@@ -69,18 +69,38 @@ export const feedbackData: Feedback[] = [
     category: 'feature',
     description:
       'It would help people with light sensitivities and who prefer dark mode.',
-    votes: 10,
+    votes: 55,
     status: 'suggestion',
-    comments: [],
+    comments: [
+      {
+        id: 'comment-1',
+        content: 'Good idea',
+        userId: 'user-2',
+        replyTo: null,
+      },
+      {
+        id: 'comment-2',
+        content: 'very nice!',
+        userId: 'user-2',
+        replyTo: null,
+      },
+    ],
   },
   {
     id: 'feed-3',
     title: 'Add image/video upload to feedback',
     category: 'enhancement',
     description: 'Images and screencasts can enhance comments on solutions.',
-    votes: 22,
+    votes: 40,
     status: 'suggestion',
-    comments: [],
+    comments: [
+      {
+        id: 'comment-1',
+        content: 'Good idea',
+        userId: 'user-3',
+        replyTo: null,
+      },
+    ],
   },
   {
     id: 'feed-4',

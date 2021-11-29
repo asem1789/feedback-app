@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-feedback',
@@ -14,7 +15,7 @@ export class CreateFeedbackComponent implements OnInit {
     comments: ['', Validators.required],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -26,5 +27,9 @@ export class CreateFeedbackComponent implements OnInit {
 
   get f() {
     return this.feedbackForm.controls;
+  }
+
+  onBack() {
+    this.router.navigate(['/']);
   }
 }
