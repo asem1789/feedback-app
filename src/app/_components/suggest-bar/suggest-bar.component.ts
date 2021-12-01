@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { SortTypes } from 'src/app/models/sort-types';
-import { RouteHistoryService } from 'src/app/shared/services/route-history.service';
 
 @Component({
   selector: 'app-suggest-bar',
@@ -27,10 +26,7 @@ export class SuggestBarComponent implements OnInit {
   selected: SortTypes = { text: 'Most Upvotes', value: 'most-upvotes' };
   showList: boolean = false;
 
-  constructor(
-    private router: Router,
-    private historyService: RouteHistoryService
-  ) {}
+  constructor(private router: Router) {}
 
   @ViewChild('value') value!: ElementRef;
 
@@ -48,7 +44,6 @@ export class SuggestBarComponent implements OnInit {
   }
 
   navFeedback() {
-    this.historyService.goFront(this.router.url);
     this.router.navigate(['create-feedback']);
   }
 }

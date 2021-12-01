@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Feedback } from 'src/app/models/feedback';
 
 @Component({
@@ -8,13 +9,14 @@ import { Feedback } from 'src/app/models/feedback';
 })
 export class FeedbackCardComponent implements OnInit {
   @Input() feedback!: Feedback;
+  @Input() type!: string;
   countVotes!: number;
   voteClicked: boolean = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.countVotes = this.feedback.votes || 0;
+    this.countVotes = this.feedback?.votes || 0;
   }
 
   toggleVote() {
@@ -25,5 +27,10 @@ export class FeedbackCardComponent implements OnInit {
       this.countVotes -= 1;
       this.voteClicked = false;
     }
+  }
+
+  goDetail() {
+    // this.router.navigate([""])
+    console.log('Goo Feedback Details');
   }
 }

@@ -1,7 +1,7 @@
-<div class="feed-card">
+<div *ngIf="!type" class="feed-card" (click)="goDetail()">
   <button
     (click)="toggleVote()"
-    class="feed-card__vote"
+    class="feed-card__vote feed-card__vote--vert"
     [class.feed-card__btn-active]="voteClicked"
   >
     <mat-icon color="accent" class="feed-card__vote-icon">expand_less</mat-icon>
@@ -21,5 +21,53 @@
     <span class="feed-card__comment-span">{{
       feedback.comments?.length || 0
     }}</span>
+  </div>
+</div>
+
+<div
+  (click)="goDetail()"
+  *ngIf="type"
+  class="feed-card-road"
+  [ngClass]="{
+    'state-planned': feedback.status == 'planned',
+    'state-progress': feedback.status == 'in-progress',
+    'state-live': feedback.status == 'live'
+  }"
+>
+  <div class="feed-card__status">
+    <span class="indicator"></span>
+    <p>{{ feedback.status }}</p>
+  </div>
+  <div>
+    <h2 class="feed-card__title feed-card__title-small">
+      {{ feedback.title }}
+    </h2>
+    <p class="feed-card__text">
+      {{ feedback.description }}
+    </p>
+    <button class="feed-card__tag-btn" disabled>
+      <span>{{ feedback.category }}</span>
+    </button>
+  </div>
+  <div class="feed-card__footer">
+    <button
+      (click)="toggleVote()"
+      class="feed-card__vote"
+      [class.feed-card__btn-active]="voteClicked"
+    >
+      <mat-icon color="accent" class="feed-card__vote-icon"
+        >expand_less</mat-icon
+      >
+      <span class="feed-card__vote-num">{{ countVotes }}</span>
+    </button>
+    <div class="feed-card__comment">
+      <mat-icon
+        class="feed-card__comment-icon"
+        svgIcon="comment_icon"
+      ></mat-icon>
+      <span class="feed-card__comment-span">{{
+        feedback.comments?.length || 0
+      }}</span>
+    </div>
   </div>
 </div>

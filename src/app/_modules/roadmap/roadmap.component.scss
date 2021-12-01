@@ -1,0 +1,143 @@
+@import "~/src/assets/scss/mixins";
+
+
+.road {
+  padding-top: 8rem;
+
+  @include respond(mobile){
+    padding-top: 0;
+  }
+
+  &__flex {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    background-color: #373f68;
+    border-radius: 8px;
+    padding: 2rem;
+    color: #fff;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include respond(mobile){
+      border-radius: 0;
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.8em;
+  }
+
+  &__content {
+    margin-top: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    @include respond(mobile){
+      margin-top: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.tap {
+  
+  &__bar{
+    display: flex;
+    gap: 3rem;
+    justify-content: space-between;    
+
+    @include respond(mobile){
+      background-color: #f2f4ff;
+      border-bottom: 1px solid var(--gray-20);
+      box-shadow: 0 2px 4rem rgba(0,0,0,.2);
+    }
+  }
+
+  &__title {
+    color: #3a4374;
+    font-size: 1.6rem;
+    font-weight: 600;
+
+    @include respond(mobile){
+      color: #3a4374;
+      opacity: .5;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__label {
+    flex: 30%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    @include respond(mobile){
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+
+  &__content {
+    display: flex;
+    gap: 2%;
+    margin-top: 2rem;
+    justify-content: space-between;
+
+    @include respond(mobile){
+      margin-top: 2.6em;
+      padding-right: 2.4rem;
+      padding-left: 2.4rem;
+    }
+  }
+
+  &__content-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 30%;  
+    
+    @include respond(mobile){
+      width: 100%;
+    }
+
+  }
+}
+
+.hide-small {
+
+  @include respond(mobile){
+    display: none;
+  }
+}
+
+
+@include respond(mobile){
+
+  .active-planned {
+    border-bottom: 2px solid #f49f85;
+    .tap__title {
+      opacity:  1;
+    }
+  }
+  
+  .active-progress {
+    border-bottom: 2px solid #ad1fea;
+    .tap__title {
+      opacity:  1;
+    }
+  }
+  
+  .active-live {
+    border-bottom: 2px solid #62bcfa;
+    .tap__title {
+      opacity:  1;
+    }
+  }
+}

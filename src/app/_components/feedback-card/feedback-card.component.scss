@@ -60,18 +60,25 @@
 .feed-card__vote {
   padding: .8rem;
   border-radius: 1rem;
-  background-color: #f2f4ff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #f2f4ff;  
   cursor: pointer;
-  align-self: flex-start;
+  
+  display: flex;
+  align-items: center;
   transition: all .4s;
+  
 
   &:hover,
   &:active {
     background-color: #cfd7ff;
   }
+
+  &--vert {
+    flex-direction: column;
+    align-self: flex-start;
+  }
+  
+ 
 
   &-num {
     font-size: 1.6rem;
@@ -79,6 +86,8 @@
     color: var(--text-accent-dark);
 
   }
+
+
 
 }
 
@@ -94,5 +103,78 @@
   .feed-card__vote-icon,
   .feed-card__vote-num {
     color: #fff;
+  }
+}
+
+////////////////////////////
+/// feed-card-road style
+
+.feed-card-road {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: var(--color-white);
+  transition: all .3s;
+  cursor: pointer;
+  border-top: 6px solid transparent;
+  font-size: 1.2rem;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 1px 3px 20px rgba(0,0,0,.1);
+  }
+}
+
+.feed-card__status {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: 1.5rem;
+}
+
+.feed-card__title-small {
+  font-size: 1.4rem;
+}
+
+.feed-card__footer {
+  display: flex;  
+  margin-top: 2rem;
+  justify-content: space-between;
+  align-content: center;
+    
+  .feed-card__vote-num {
+    font-size: 1.4rem;
+  }
+
+  .feed-card__vote {
+    padding: .1rem .8rem;
+  }
+}
+
+.indicator {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+
+.state-planned {
+  border-top-color: #f49f85;
+  .indicator {
+    background-color: #f49f85;
+  }
+}
+
+.state-progress {
+  border-top-color: #ad1fea;
+  .indicator {
+    background-color: #ad1fea;
+  }
+}
+
+.state-live {
+  border-top-color: #62bcfa;
+  .indicator {
+    background-color: #62bcfa;
   }
 }

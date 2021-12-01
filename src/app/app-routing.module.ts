@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateFeedbackComponent } from './_modules/create-feedback/create-feedback.component';
 
 const routes: Routes = [
   {
@@ -14,6 +13,11 @@ const routes: Routes = [
       import('./_modules/create-feedback/create-feedback.module').then(
         (m) => m.CreateFeedbackModule
       ),
+  },
+  {
+    path: 'roadmap',
+    loadChildren: () =>
+      import('./_modules/roadmap/roadmap.module').then((m) => m.RoadmapModule),
   },
 ];
 

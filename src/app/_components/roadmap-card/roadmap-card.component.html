@@ -1,7 +1,7 @@
 <div class="map-card">
   <div class="map-card__header">
     <h2 class="map-card__title">Roadmap</h2>
-    <a class="map-card__link" routerLink="/">View</a>
+    <a class="map-card__link" [routerLink]="['roadmap']">View</a>
   </div>
   <ul class="map-card__list">
     <li *ngFor="let item of STATUS" class="map-card__item">

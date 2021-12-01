@@ -5,36 +5,10 @@ import { Feedback } from 'src/app/models/feedback';
   name: 'filterBy',
 })
 export class FilterByPipe implements PipeTransform {
-  transform(items: Feedback[], type: string): Feedback[] {
-    if (items.length <= 0 || !type) {
+  transform(items: Feedback[], status: string): any[] {
+    if (items.length <= 0 || !status) {
       return items;
     }
-
-    console.log('pipe: ', items);
-    console.log('pipe: ', type);
-
-    let sortedItems!: Feedback[];
-    switch (type) {
-      case 'most-upvotes':
-        sortedItems = items.sort((a, b) => b.votes! - a.votes!);
-        break;
-      case 'least-upvotes':
-        sortedItems = items.sort((a, b) => a.votes! - b.votes!);
-        break;
-      case 'most-comments':
-        sortedItems = items.sort(
-          (a, b) => b.comments?.length! - a.comments?.length!
-        );
-        break;
-      case 'least-comments':
-        sortedItems = items.sort(
-          (a, b) => a.comments?.length! - b.comments?.length!
-        );
-        break;
-      default:
-        sortedItems = [...items];
-    }
-
-    return sortedItems;
+    return items.filter((el) => el.status === status);
   }
 }

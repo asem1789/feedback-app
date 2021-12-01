@@ -24,7 +24,7 @@
     <app-suggest-bar (option)="sortBy($event)"></app-suggest-bar>
     <div class="home__cards">
       <app-feedback-card
-        *ngFor="let feed of feedbackData | filterBy: sorted"
+        *ngFor="let feed of feedbackData | sortBy: sorted"
         [feedback]="feed"
         class="home__card"
       ></app-feedback-card>

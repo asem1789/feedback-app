@@ -1,0 +1,80 @@
+<div class="road">
+  <div class="road__header">
+    <div class="road__flex">
+      <a class="btn-back btn-back--white" appGoBack>
+        <mat-icon class="btn-back__icon">navigate_before</mat-icon>
+        Go Back
+      </a>
+      <h2 class="road__title">Roadmap</h2>
+    </div>
+    <button (click)="onClickCreate()" type="button" class="btn btn__primary">
+      <mat-icon class="btn__icon">add</mat-icon>
+      Add Feedback
+    </button>
+  </div>
+  <div class="road__content">
+    <div class="tap">
+      <div class="tap__bar">
+        <div
+          class="tap__label"
+          [class.active-planned]="activeTap === 'planned'"
+          (click)="changeTap('planned')"
+        >
+          <h3 class="tap__title">Planned ({{ numStatus("planned") }})</h3>
+          <p class="hide-small">Ideas prioritized for research</p>
+        </div>
+
+        <div
+          class="tap__label"
+          [class.active-progress]="activeTap === 'in-progress'"
+          (click)="changeTap('in-progress')"
+        >
+          <h3 class="tap__title">
+            In-Progress ({{ numStatus("in-progress") }})
+          </h3>
+          <p class="hide-small">Currently being developed</p>
+        </div>
+        <div
+          class="tap__label"
+          [class.active-live]="activeTap === 'live'"
+          (click)="changeTap('live')"
+        >
+          <h3 class="tap__title">Live ({{ numStatus("live") }})</h3>
+          <p class="hide-small">Released features</p>
+        </div>
+      </div>
+      <div *ngIf="feedbackData.length" class="tap__content">
+        <div
+          class="tap__content-item"
+          *ngIf="isSmall ? activeTap === 'planned' : true"
+        >
+          <app-feedback-card
+            [type]="'road'"
+            *ngFor="let feed of feedbackData | filterBy: 'planned'"
+            [feedback]="feed"
+          ></app-feedback-card>
+        </div>
+        <div
+          class="tap__content-item"
+          *ngIf="isSmall ? activeTap === 'in-progress' : true"
+        >
+          <app-feedback-card
+            [type]="'road'"
+            *ngFor="let feed of feedbackData | filterBy: 'in-progress'"
+            [feedback]="feed"
+          ></app-feedback-card>
+        </div>
+        <div
+          class="tap__content-item"
+          *ngIf="isSmall ? activeTap === 'live' : true"
+        >
+          <app-feedback-card
+            [type]="'road'"
+            *ngFor="let feed of feedbackData | filterBy: 'live'"
+            [feedback]="feed"
+          ></app-feedback-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
