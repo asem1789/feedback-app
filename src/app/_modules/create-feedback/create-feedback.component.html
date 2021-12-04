@@ -1,6 +1,5 @@
 <div class="create-feed">
   <div class="create-feed__bar">
-    <!-- <button (click)="onBack()" class="btn-back"> -->
     <button appGoBack class="btn-back">
       <mat-icon class="btn-back__icon">chevron_left</mat-icon>
       Go Back
@@ -8,9 +7,15 @@
   </div>
   <div class="create-feed__content">
     <div class="circle">
-      <mat-icon class="circle__icon">add</mat-icon>
+      <mat-icon *ngIf="!isEdit" class="circle__icon">add</mat-icon>
+      <mat-icon
+        *ngIf="isEdit"
+        class="circle__icon--edit"
+        svgIcon="edit_icon"
+      ></mat-icon>
     </div>
-    <h2 class="h-primary mb-3">Create New Feedback</h2>
+    <h2 *ngIf="!isEdit" class="h-primary mb-3">Create New Feedback</h2>
+    <h2 *ngIf="isEdit" class="h-primary mb-3">Editing '{{ f.title.value }}'</h2>
     <form class="form" [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
       <div class="form-field">
         <label class="form-field__label">Feedback Title</label>
@@ -77,6 +82,7 @@
         </div>
       </div>
       <div class="create-feed__controls">
+        <button type="button" class="btn btn__warn auto-r">Delete</button>
         <button type="reset" class="btn btn__secondary">Cancel</button>
         <button
           type="submit"

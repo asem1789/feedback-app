@@ -136,6 +136,28 @@ textarea {
       background-color: var(--text-accent);
     }
   }
+  
+  &__warn {
+    background-color: #D73737;
+    color: #fff;
+    transition: all 0.4s;
+  
+    &:hover,
+    &:active {
+      background-color: #E98888;
+    }
+  }
+
+  &__edit {
+    background-color: #4661e6;
+    color: #fff;
+    transition: all 0.4s;
+
+    &:hover,
+    &:active {
+      background-color: #7c91f9;
+    }
+  }
 }
 
 .btn-back {
@@ -227,6 +249,12 @@ textarea {
 
 
 /////////////////////////////////////////////
+// Grid style
+.auto-r {
+  margin-right: auto;
+}
+
+/////////////////////////////////////////////
 // Utilities style
 .form-field__input:focus,
 .select__input:focus {
@@ -236,5 +264,11 @@ textarea {
 
 .border-error {
   box-shadow: 0 0 3px 1px var(--color-warn) !important;
+  opacity: 0.8;
+}
+
+.comment-focus:focus,
+.comment-focus:active {
+  box-shadow: 0 0 3px 1px #4661e6;
   opacity: 0.8;
 }

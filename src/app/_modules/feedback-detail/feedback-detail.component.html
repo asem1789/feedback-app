@@ -1,0 +1,42 @@
+<div class="detail">
+  <div class="detail__header">
+    <button appGoBack class="btn-back">
+      <mat-icon class="btn-back__icon">chevron_left</mat-icon>
+      Go Back
+    </button>
+    <button type="button" class="btn btn__edit" (click)="editFeedback()">
+      Edit FeedBack
+    </button>
+  </div>
+  <div class="detail__content" *ngIf="!!feedback">
+    <app-feedback-card [feedback]="feedback"></app-feedback-card>
+  </div>
+
+  <div class="comment">
+    <h3 class="comment__title">Add Comment</h3>
+    <textarea
+      placeholder="Type your comment here"
+      class="comment__text comment-focus"
+      [class.border-error]="
+        comment.invalid && (comment.touched || comment.dirty)
+      "
+      [draggable]="false"
+      cols="10"
+      rows="5"
+      [formControl]="comment"
+      maxlength="250"
+    ></textarea>
+    <div class="comment__footer">
+      <p class="comment__count">{{ comment.value.length }} / 250</p>
+      <button
+        type="button"
+        class="btn btn__primary"
+        [ngClass]="{
+          'btn__disable  btn__disable--primary': comment.invalid
+        }"
+      >
+        Post Comment
+      </button>
+    </div>
+  </div>
+</div>

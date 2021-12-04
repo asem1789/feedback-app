@@ -31,6 +31,9 @@ export class FeedbackCardComponent implements OnInit {
 
   goDetail() {
     // this.router.navigate([""])
-    console.log('Goo Feedback Details');
+    // if (this.feedback.id) {
+    this.router.navigate(['feedback', this.feedback.id]);
+    //   console.log('Goo Feedback Details', this.feedback);
+    // }
   }
 }

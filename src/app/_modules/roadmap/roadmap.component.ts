@@ -17,11 +17,9 @@ export class RoadmapComponent implements OnInit {
 
   ngOnInit(): void {
     this.feedbackData = this.feedService.getAllFeedback() || [];
-    console.log('in onInit: ', this.feedbackData);
 
     this.feedService.feedbackChange.subscribe((feeds) => {
       this.feedbackData = feeds;
-      console.log('inside subsciribe: ', this.feedbackData);
     });
   }
 
