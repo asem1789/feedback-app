@@ -1,0 +1,43 @@
+<div class="comments">
+  <h3 class="comments__title">{{ comments.length }} / Comments</h3>
+
+  <ul class="comments__list">
+    <li class="comments__item">
+      <img
+        class="comments__img"
+        [src]="'../../../assets/images/' + 'user-1' + '.png'"
+      />
+      <div class="flex-1">
+        <div class="comments__header">
+          <div>
+            <h4 class="comments__user-full">Asem Hasan</h4>
+            <p class="comments__user-name">@asem123</p>
+          </div>
+          <button (click)="toggleReply()" class="comments__btn-reply">
+            Reply
+          </button>
+        </div>
+        <p class="comments__message">
+          Awesome idea! Trying to find framework-specific projects within the
+          hubs can be tedious
+        </p>
+        <div
+          class="comments__textarea-wrap"
+          [class.comments__textarea-wrap-show]="isReplyOpen"
+        >
+          <textarea
+            class="comments__textarea"
+            placeholder="your reply"
+            [formControl]="reply"
+          ></textarea>
+          <button
+            class="comments__btn-send"
+            [class.comments__btn-send-active]="reply.valid"
+          >
+            <mat-icon class="comments__send-icon">send</mat-icon>
+          </button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

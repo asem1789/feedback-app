@@ -1,5 +1,32 @@
 import { Feedback } from '../models/feedback';
 
+let Users = {
+  'user-1': {
+    id: 'user-1',
+    userName: 'khaled123',
+    fullName: 'khaled ahmad',
+    image: 'user-1',
+  },
+  'user-2': {
+    id: 'user-2',
+    userName: 'ali987',
+    fullName: 'Ali Ali',
+    image: 'user-2',
+  },
+  'user-3': {
+    id: 'user-3',
+    userName: 'mohammad976',
+    fullName: 'Mohammad Khaled',
+    image: 'user-3',
+  },
+  'user-4': {
+    id: 'user-4',
+    userName: 'sami3868',
+    fullName: 'Sami Abed',
+    image: 'user-4',
+  },
+};
+
 export const feedbackData: Feedback[] = [
   {
     id: 'feed-1',
@@ -13,44 +40,44 @@ export const feedbackData: Feedback[] = [
       {
         id: 'comment-1',
         content: 'Good idea, I hope we can see that soon',
-        userId: 'user-1',
+        userInfo: Users['user-1'],
         replyTo: null,
       },
       {
         id: 'comment-2',
         content: 'Awesome idea',
-        userId: 'user-2',
+        userInfo: Users['user-2'],
         replyTo: null,
       },
       {
         id: 'comment-3',
         content: 'very good idea',
-        userId: 'user-3',
+        userInfo: Users['user-3'],
         replyTo: null,
       },
       {
         id: 'comment-4',
         content: 'yes, we need that to can simulate real project',
-        userId: 'user-4',
+        userInfo: Users['user-4'],
         replyTo: null,
       },
       /////////////////////// nested Comments to comment-1
       {
         id: 'comment-5',
         content: 'I agree with you',
-        userId: 'user-4',
+        userInfo: Users['user-4'],
         replyTo: 'comment-1',
       },
       {
         id: 'comment-6',
         content: 'Nice :)',
-        userId: 'user-3',
+        userInfo: Users['user-3'],
         replyTo: 'comment-1',
       },
       {
         id: 'comment-7',
         content: 'simply dummy text of the printing and typesetting industry',
-        userId: 'user-2',
+        userInfo: Users['user-2'],
         replyTo: 'comment-1',
       },
       //////////////////////////// more nested to comment-5 as comment-1
@@ -58,7 +85,7 @@ export const feedbackData: Feedback[] = [
         id: 'comment-9',
         content:
           'Lorem Ipsum has been the industry standard dummy text ever since the 1500s',
-        userId: 'user-3',
+        userInfo: Users['user-3'],
         replyTo: 'comment-5',
       },
     ],
@@ -75,13 +102,13 @@ export const feedbackData: Feedback[] = [
       {
         id: 'comment-1',
         content: 'Good idea',
-        userId: 'user-2',
+        userInfo: Users['user-2'],
         replyTo: null,
       },
       {
         id: 'comment-2',
         content: 'very nice!',
-        userId: 'user-2',
+        userInfo: Users['user-2'],
         replyTo: null,
       },
     ],
@@ -97,7 +124,7 @@ export const feedbackData: Feedback[] = [
       {
         id: 'comment-1',
         content: 'Good idea',
-        userId: 'user-3',
+        userInfo: Users['user-3'],
         replyTo: null,
       },
     ],

@@ -19,6 +19,7 @@ import { SelectComponent } from './_components/select/select.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateFeedbackModule } from './_modules/create-feedback/create-feedback.module';
 import { FeedbackDetailComponent } from './_modules/feedback-detail/feedback-detail.component';
+// import { CommentsComponent } from './_components/comments/comments.component';
 // import { RoadmapComponent } from './_modules/roadmap/roadmap.component';
 // import { FilterByPipe } from './shared/pipes/filter-by.pipe';
 // import { SideBarComponent } from './_components/side-bar/side-bar.component';
@@ -26,6 +27,7 @@ import { FeedbackDetailComponent } from './_modules/feedback-detail/feedback-det
 @NgModule({
   declarations: [
     AppComponent,
+    // CommentsComponent,
     // FeedbackDetailComponent,
     // FeedbackCardMapComponent,
     // RoadmapComponent,

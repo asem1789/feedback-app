@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
+import { UserData } from './user-data';
 
 @Injectable({
   providedIn: 'root',
@@ -7,11 +8,7 @@ import { User } from '../models/user';
 export class UserService {
   constructor() {}
 
-  getUser(): User {
-    return {
-      fullName: 'user1',
-      image: '',
-      userName: '@user123',
-    };
+  getUser(id: string): User {
+    return UserData.filter((el) => el.id === id)[0];
   }
 }

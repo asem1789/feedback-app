@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Feedback } from 'src/app/models/feedback';
 import { FeedbackService } from 'src/app/_services/feedback.service';
+import { UserService } from 'src/app/_services/user.service';
 
 @Component({
   selector: 'app-feedback-detail',
@@ -16,7 +17,8 @@ export class FeedbackDetailComponent implements OnInit {
   constructor(
     private activateRoute: ActivatedRoute,
     private router: Router,
-    private feedbackService: FeedbackService
+    private feedbackService: FeedbackService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {

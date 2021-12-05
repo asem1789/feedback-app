@@ -82,7 +82,9 @@
         </div>
       </div>
       <div class="create-feed__controls">
-        <button type="button" class="btn btn__warn auto-r">Delete</button>
+        <button *ngIf="isEdit" type="button" class="btn btn__warn auto-r">
+          Delete
+        </button>
         <button type="reset" class="btn btn__secondary">Cancel</button>
         <button
           type="submit"

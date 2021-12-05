@@ -1,3 +1,5 @@
+import { User } from './user';
+
 export interface Feedback {
   id?: string;
   title?: string;
@@ -12,5 +14,5 @@ export interface Comments {
   id?: string;
   content?: string;
   replyTo?: string | null; // if null it will referred to original post
-  userId?: string;
+  userInfo?: User;
 }
