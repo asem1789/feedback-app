@@ -1,0 +1,54 @@
+.detail {
+  max-width: 770px;
+  margin: 0 auto;
+  padding-top: 8rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+
+  &__header {
+    display: flex;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+    align-content: center;
+  }
+}
+
+.comment {
+  background-color: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 5px;
+  margin-top: 3rem;
+
+  &__title {
+    color: var(--color-accent);
+    margin-bottom: 2rem;
+  }
+
+  &__text {
+    background-color: #f2f4ff;
+    border-radius: 5px;
+    width: 100%;
+    padding: 2rem;
+    resize: none;
+
+    &::placeholder {
+      color: var(--gray-30);
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  &__count {
+    padding-left: 1rem;
+  }
+}
+
+app-comments {
+  display: block;
+  margin-top: 3rem;
+}

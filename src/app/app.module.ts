@@ -10,16 +10,37 @@ import { LogoCardComponent } from './_components/logo-card/logo-card.component';
 import { FilterCardComponent } from './_components/filter-card/filter-card.component';
 import { RoadmapCardComponent } from './_components/roadmap-card/roadmap-card.component';
 import { SuggestBarComponent } from './_components/suggest-bar/suggest-bar.component';
+import { CommonModule } from '@angular/common';
+import { ClickOutsideDirective } from './shared/directives/click-outside.directive';
+import { FeedbackCardComponent } from './_components/feedback-card/feedback-card.component';
+import { HomeModule } from './_modules/home/home.module';
+import { CreateFeedbackComponent } from './_modules/create-feedback/create-feedback.component';
 import { SelectComponent } from './_components/select/select.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CreateFeedbackModule } from './_modules/create-feedback/create-feedback.module';
+import { FeedbackDetailComponent } from './_modules/feedback-detail/feedback-detail.component';
+// import { CommentsComponent } from './_components/comments/comments.component';
+// import { RoadmapComponent } from './_modules/roadmap/roadmap.component';
+// import { FilterByPipe } from './shared/pipes/filter-by.pipe';
+// import { SideBarComponent } from './_components/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LogoCardComponent,
-    FilterCardComponent,
-    RoadmapCardComponent,
-    SuggestBarComponent,
-    SelectComponent,
+    // CommentsComponent,
+    // FeedbackDetailComponent,
+    // FeedbackCardMapComponent,
+    // RoadmapComponent,
+    // FilterByPipe,
+    // CreateFeedbackComponent,
+    // SelectComponent,
+    // SideBarComponent,
+    // LogoCardComponent,
+    // FilterCardComponent,
+    // RoadmapCardComponent,
+    // SuggestBarComponent,
+    // ClickOutsideDirective,
+    // FeedbackCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +48,8 @@ import { SelectComponent } from './_components/select/select.component';
     BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
+    CommonModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

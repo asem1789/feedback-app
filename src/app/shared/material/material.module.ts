@@ -1,11 +1,23 @@
 import { NgModule } from '@angular/core';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { SuggestionIcon } from 'src/assets/icons/svgs';
+import { CommentIcon, EditIcon, SuggestionIcon } from 'src/assets/icons/svgs';
 import { MatButtonModule } from '@angular/material/button';
-const Mat_Module = [MatIconModule, MatButtonModule];
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
-const CustomIcons = [{ name: 'suggestion_icon', svg: SuggestionIcon }];
+const Mat_Module = [
+  MatIconModule,
+  MatButtonModule,
+  MatInputModule,
+  MatFormFieldModule,
+];
+
+const CustomIcons = [
+  { name: 'suggestion_icon', svg: SuggestionIcon },
+  { name: 'comment_icon', svg: CommentIcon },
+  { name: 'edit_icon', svg: EditIcon },
+];
 
 @NgModule({
   declarations: [],

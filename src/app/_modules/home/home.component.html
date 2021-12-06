@@ -1,0 +1,34 @@
+<div class="home">
+  <div class="home-nav">
+    <div class="home-nav__logo">
+      <h1 class="home-nav__title">Frontend Mentor</h1>
+      <h2 class="home-nav__subtitle">Feedback Board</h2>
+    </div>
+    <button (click)="toggleSide()" mat-icon-button type="button">
+      <mat-icon *ngIf="!isSideOpen" class="home-nav__icon">menu</mat-icon>
+      <mat-icon *ngIf="isSideOpen" class="home-nav__icon">close</mat-icon>
+    </button>
+  </div>
+
+  <div class="home-nav__side" [class.home-nav__side-animate]="isSideOpen">
+    <app-filter-card></app-filter-card>
+    <app-roadmap-card></app-roadmap-card>
+  </div>
+
+  <div class="home__left">
+    <app-logo-card></app-logo-card>
+    <app-filter-card></app-filter-card>
+    <app-roadmap-card></app-roadmap-card>
+  </div>
+  <div class="home__right">
+    <app-suggest-bar (option)="sortBy($event)"></app-suggest-bar>
+    <div class="home__cards">
+      <app-feedback-card
+        *ngFor="let feed of feedbackData | sortBy: sorted"
+        [feedback]="feed"
+        class="home__card"
+      ></app-feedback-card>
+    </div>
+    <div *ngIf="isSideOpen" (click)="isSideOpen = false" class="overlay"></div>
+  </div>
+</div>

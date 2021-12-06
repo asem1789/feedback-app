@@ -1,15 +1,27 @@
+@import "~/src/assets/scss/mixins";
+
 .suggest {
   background-color: #373f68;
   color: #fff;
   border-radius: 8px;
+  width: 100%;
+  padding: 1.5rem 2.5rem;
+
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  width: 720px;
-  padding: 1.5rem 2.5rem;
+
+  @include respond(mobile){
+    border-radius: 0;
+  }
 
   &__info {
     display: flex;
+
+    @include respond(mobile){
+      display: none;
+      pointer-events: none;
+    }
   }
 
   &__title {
@@ -23,12 +35,11 @@
     display: flex;
     align-items: center;
     position: relative;
-    justify-content: center;
+    margin-left: 2rem;
 
-    &:hover,
-    &:active {
-      cursor: pointer;
-    }
+    @include respond(mobile){
+      margin-left: 0;
+    } 
 
     .label {
       font-size: 1.6rem;
@@ -49,6 +60,7 @@
 .suggest__sort-btn {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .sort__list {
@@ -61,6 +73,7 @@
   flex-direction: column;
   background-color: #fff;
   box-shadow: 2px 4px 8px   rgba(0,0,0,.4);
+  z-index: 100;
 }
 
 .sort__item {
@@ -70,6 +83,11 @@
   transition: color .4s;
   display: flex;
   align-content: center;
+
+  &:hover,
+  &:active {
+    cursor: pointer;
+  }
 
   .sort__text {
     flex: 1;
@@ -98,6 +116,5 @@
 
 .list-show {
   opacity: 1;
-  transform: translateY(0) !important;
-
+  transform: translateY(0);
 }

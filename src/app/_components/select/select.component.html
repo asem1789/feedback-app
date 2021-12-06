@@ -1,1 +1,34 @@
-<p>select works!</p>
+<div class="select">
+  <div [formGroup]="formName" (click)="toggleSelect()" class="select__control">
+    <input
+      [class.border-error]="
+        category.invalid && (category.touched || category.dirty)
+      "
+      class="select__input"
+      type="text"
+      placeholder="Select Category"
+      [formControlName]="controlName"
+      readonly
+      #inputText
+    />
+    <mat-icon class="select__icon" [class.select__icon-rotate]="showList"
+      >expand_more</mat-icon
+    >
+  </div>
+  <ul
+    appClickOutside
+    [toggle]="inputText"
+    (clicked)="hideList()"
+    #selectList
+    class="select__list"
+  >
+    <li
+      class="select__item"
+      *ngFor="let option of options"
+      (click)="selectOption(option)"
+      #listItem
+    >
+      {{ option }}
+    </li>
+  </ul>
+</div>

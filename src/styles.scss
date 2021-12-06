@@ -1,14 +1,18 @@
 @import "custom-theme.scss";
+@import "assets/scss/_typography";
+@import "assets/scss/utilities";
 
 :root {
-  --color-primary: #AD1FEA;
+  --color-primary: #ad1fea;
   --color-accent: #373f68;
-  
+
   --color-warn: #f44336;
 
   // text-color
-  --text-primary: #AD1FEA;
+  --text-primary: #ad1fea;
+
   --text-accent: #647196;
+  --text-accent-dark: #3a4374;
 
   // Special color
   --bg-body: #f2f4ff;
@@ -16,18 +20,17 @@
   // Main colors
   --color-white: #fff;
 
-  --gray-05: #F0F0F0;
-  --gray-10: #D9D9D9;
-  --gray-20: #C0C0C0;
-  --gray-30: #A6A6A6;
-  --gray-70: #6D6D6D;
+  --gray-05: #f0f0f0;
+  --gray-10: #d9d9d9;
+  --gray-20: #c0c0c0;
+  --gray-30: #a6a6a6;
+  --gray-70: #6d6d6d;
   --gray-80: #636363;
-
 }
 
 *,
 *::after,
-*::before{
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
@@ -42,7 +45,7 @@ body {
 body {
   box-sizing: border-box;
   background-color: var(--bg-body);
-  font-family: 'Jost', sans-serif;
+  font-family: "Jost", sans-serif;
   font-weight: 400;
   color: #647196;
 }
@@ -58,16 +61,48 @@ dl {
   list-style-type: none;
 }
 
+button {
+  background-color: transparent;
+  border: 0;
+
+  &:active {
+    outline: none;
+  }
+}
+
+input,
+textarea {
+  border: 0;
+  outline: none;
+  background: none;
+}
+
+/**======================*/
+// Override Angular material
+/**======================*/
+.mat-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /**======================*/
 // Reusable Components
 /**======================*/
+/////////////////////////
+///// Buttons
 .btn {
   border: 0;
   padding: 1rem 2rem;
   font-size: 1.6rem;
   border-radius: 8px;
-  font-weight: 700;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+
+  &-bold {
+    font-weight: 700;
+  }
 
   &:hover,
   &:active {
@@ -81,13 +116,163 @@ dl {
   }
 
   &__primary {
-    background-color: #AD1FEA;
+    background-color: #ad1fea;
     color: #fff;
-    transition: all .4s;
-    
+    transition: all 0.4s;
+
     &:hover,
     &:active {
-      background-color: #c75af6;      
+      background-color: #c75af6;
     }
   }
+
+  &__secondary {
+    background-color: var(--text-accent-dark);
+    color: #fff;
+    transition: all 0.4s;
+
+    &:hover,
+    &:active {
+      background-color: var(--text-accent);
+    }
+  }
+  
+  &__warn {
+    background-color: #D73737;
+    color: #fff;
+    transition: all 0.4s;
+  
+    &:hover,
+    &:active {
+      background-color: #E98888;
+    }
+  }
+
+  &__edit {
+    background-color: #4661e6;
+    color: #fff;
+    transition: all 0.4s;
+
+    &:hover,
+    &:active {
+      background-color: #7c91f9;
+    }
+  }
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  cursor: pointer;
+  color: var(--text-accent);
+  text-decoration: none;
+
+  &__icon {
+    margin-right: 0.5rem;
+    color: #4661e6;
+    transition: all 0.4s;
+  }
+
+  &:hover &__icon {
+    font-weight: 700;
+  }
+}
+
+.btn-back--white {
+  color: #fff;
+  font-weight: 500;
+  
+  .btn-back__icon {
+    color: #fff;
+    font-weight: 500;
+  }
+}
+
+.btn__disable {
+  pointer-events: none;
+  cursor: default;
+}
+
+.btn__disable--primary {
+  background-color: var(--gray-70);
+}
+
+.btn-test {
+  background-color: red;
+}
+
+.form-field {
+  position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: 2.4rem;
+  }
+
+  &__label {
+    font-weight: 700;
+    color: #3a4374;
+    display: block;
+  }
+
+  &__hint {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #647196;
+    display: block;
+  }
+
+  &__input {
+    border-radius: 5px;
+    background-color: #f2f4ff;
+    font-size: 1.6rem;
+    padding: 1.5rem 2rem;
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  &__input-text {
+    resize: none;
+  }
+
+  &__error-box {
+    position: absolute;
+    left: 1rem;
+    top: 100%;
+  }
+
+  &__error-text {
+    color: var(--color-warn);
+    font-size: 1.3rem;
+  }
+}
+
+
+/////////////////////////////////////////////
+// Grid style
+.auto-r {
+  margin-right: auto;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+/////////////////////////////////////////////
+// Utilities style
+.form-field__input:focus,
+.select__input:focus {
+  box-shadow: 0 0 3px 1px var(--color-primary);
+  opacity: 0.8;
+}
+
+.border-error {
+  box-shadow: 0 0 3px 1px var(--color-warn) !important;
+  opacity: 0.8;
+}
+
+.comment-focus:focus,
+.comment-focus:active {
+  box-shadow: 0 0 3px 1px #4661e6;
+  opacity: 0.8;
 }

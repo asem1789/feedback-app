@@ -1,0 +1,101 @@
+<div class="create-feed">
+  <div class="create-feed__bar">
+    <button appGoBack class="btn-back">
+      <mat-icon class="btn-back__icon">chevron_left</mat-icon>
+      Go Back
+    </button>
+  </div>
+  <div class="create-feed__content">
+    <div class="circle">
+      <mat-icon *ngIf="!isEdit" class="circle__icon">add</mat-icon>
+      <mat-icon
+        *ngIf="isEdit"
+        class="circle__icon--edit"
+        svgIcon="edit_icon"
+      ></mat-icon>
+    </div>
+    <h2 *ngIf="!isEdit" class="h-primary mb-3">Create New Feedback</h2>
+    <h2 *ngIf="isEdit" class="h-primary mb-3">Editing '{{ f.title.value }}'</h2>
+    <form class="form" [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+      <div class="form-field">
+        <label class="form-field__label">Feedback Title</label>
+        <span class="form-field__hint">Add a short, descriptive headline </span>
+        <input
+          formControlName="title"
+          class="form-field__input"
+          type="text"
+          [class.border-error]="
+            f.title.invalid && (f.title.touched || f.title.dirty)
+          "
+        />
+        <div
+          *ngIf="f.title.invalid && (f.title.touched || f.title.dirty)"
+          class="form-field__error-box"
+        >
+          <span class="form-field__error-text">Title is required</span>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label class="form-field__label">Category</label>
+        <span class="form-field__hint"
+          >Choose a category for your feedback
+        </span>
+        <app-select
+          class="create-feed__select"
+          [options]="options"
+          [formName]="feedbackForm"
+          controlName="category"
+        ></app-select>
+        <div
+          *ngIf="f.category.invalid && (f.category.touched || f.category.dirty)"
+          class="form-field__error-box"
+        >
+          <span class="form-field__error-text">Category is required</span>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label class="form-field__label">Feedback Details </label>
+        <span class="form-field__hint"
+          >Include any specific comments on what should be improved, added, etc.
+        </span>
+        <textarea
+          [class.border-error]="
+            f.description.invalid &&
+            (f.description.touched || f.description.dirty)
+          "
+          class="form-field__input form-field__input-text"
+          draggable="false"
+          cols="10"
+          rows="5"
+          formControlName="description"
+        ></textarea>
+        <div
+          *ngIf="
+            f.description.invalid &&
+            (f.description.touched || f.description.dirty)
+          "
+          class="form-field__error-box"
+        >
+          <span class="form-field__error-text">Comments is required</span>
+        </div>
+      </div>
+      <div class="create-feed__controls">
+        <button *ngIf="isEdit" type="button" class="btn btn__warn auto-r">
+          Delete
+        </button>
+        <button type="reset" class="btn btn__secondary">Cancel</button>
+        <button
+          type="submit"
+          class="btn btn__primary"
+          [ngClass]="{
+            'btn__disable btn__disable--primary': feedbackForm.invalid
+          }"
+        >
+          Add Comment
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

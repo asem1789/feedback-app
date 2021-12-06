@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Output,
+  ViewChild,
+  EventEmitter,
+} from '@angular/core';
+import { Router } from '@angular/router';
 import { SortTypes } from 'src/app/models/sort-types';
 
 @Component({
@@ -7,27 +15,35 @@ import { SortTypes } from 'src/app/models/sort-types';
   styleUrls: ['./suggest-bar.component.scss'],
 })
 export class SuggestBarComponent implements OnInit {
+  @Output() option = new EventEmitter();
   OPTIONS = [
-    'Most Upvotes',
-    'Least Upvotes',
-    'Most Comments',
-    'Least Comments',
+    { text: 'Most Upvotes', value: 'most-upvotes' },
+    { text: 'Least Upvotes', value: 'least-upvotes' },
+    { text: 'Most Comments', value: 'most-comments' },
+    { text: 'Least Comments', value: 'least-comments' },
   ];
 
-  selected: string = 'Most Upvotes';
+  selected: SortTypes = { text: 'Most Upvotes', value: 'most-upvotes' };
   showList: boolean = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
+
+  @ViewChild('value') value!: ElementRef;
 
   ngOnInit(): void {}
 
-  selectOption(value: string) {
-    this.selected = value;
-    console.log(value);
-    //   this.showList = false;
+  selectOption(option: SortTypes) {
+    this.selected = option;
+    this.value.nativeElement.textContent = option.text;
+    this.showList = false;
+    this.option.emit(option.value);
   }
 
   toggleList() {
     this.showList = !this.showList;
+  }
+
+  navFeedback() {
+    this.router.navigate(['create-feedback']);
   }
 }

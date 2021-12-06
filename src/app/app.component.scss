@@ -1,5 +1,12 @@
+@import "~/src/assets/scss/mixins";
+
 .app {
-  display: flex;
-  padding-top: 8rem;
-  justify-content: center;
+  padding-bottom: 8rem;
+  max-width: 1120px;
+  margin: 0 auto;
+  font-size: 1.6rem;
+
+  @include respond(tablet){
+    max-width: 780px;
+  }
 }
