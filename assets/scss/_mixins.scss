@@ -1,0 +1,33 @@
+
+@mixin cardSize{
+  width: 22rem;
+  height: 18rem;
+  border-radius: 10px;
+  padding: 25px;
+
+  @media (max-width: 800px){
+    width: 21rem;
+  }
+}
+
+
+@mixin respond($breakpoint){
+
+  @if $breakpoint == small{
+    @media (max-width: 650px){
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile{
+    @media (max-width: 777px){
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet {
+    @media (max-width: 1125px){
+      @content;
+    }
+  }
+}
