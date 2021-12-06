@@ -2,28 +2,38 @@
   <h3 class="comments__title">{{ comments.length }} / Comments</h3>
 
   <ul class="comments__list">
-    <li class="comments__item">
+    <li
+      *ngFor="let comment of filterComments(); let i = index"
+      class="comments__item"
+    >
       <img
         class="comments__img"
-        [src]="'../../../assets/images/' + 'user-1' + '.png'"
+        [src]="'../../../assets/images/' + comment.userInfo.id + '.png'"
       />
       <div class="flex-1">
         <div class="comments__header">
           <div>
-            <h4 class="comments__user-full">Asem Hasan</h4>
-            <p class="comments__user-name">@asem123</p>
+            <h4 class="comments__user-full">{{ comment.userInfo.fullName }}</h4>
+            <p class="comments__user-name">
+              {{ "@" + comment.userInfo.userName }}
+            </p>
           </div>
-          <button (click)="toggleReply()" class="comments__btn-reply">
+          <button
+            (click)="toggleReply(comment.id + 'index' + i)"
+            class="comments__btn-reply"
+          >
             Reply
           </button>
         </div>
         <p class="comments__message">
-          Awesome idea! Trying to find framework-specific projects within the
-          hubs can be tedious
+          {{ comment.content }}
         </p>
         <div
+          [attr.data-text]="comment.id + 'index' + i"
           class="comments__textarea-wrap"
-          [class.comments__textarea-wrap-show]="isReplyOpen"
+          [class.comments__textarea-wrap-show]="
+            showOrHideReply(comment.id + 'index' + i)
+          "
         >
           <textarea
             class="comments__textarea"

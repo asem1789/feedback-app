@@ -13,6 +13,6 @@ export interface Feedback {
 export interface Comments {
   id?: string;
   content?: string;
-  replyTo?: string | null; // if null it will referred to original post
+  replies?: string[] | null; // if null it will referred to original post
   userInfo?: User;
 }
