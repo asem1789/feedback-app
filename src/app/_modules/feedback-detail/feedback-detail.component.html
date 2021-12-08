@@ -12,10 +12,19 @@
     <app-feedback-card [feedback]="feedback"></app-feedback-card>
   </div>
 
-  <app-comments
-    *ngIf="feedback && feedback.comments"
-    [comments]="feedback.comments"
-  ></app-comments>
+  <div *ngIf="feedback && feedback.comments" class="detail__comments">
+    <h3 class="detail__comments__title">
+      {{ feedback.comments!.length }} / Comments
+    </h3>
+    <ul class="detail__comments__list">
+      <li
+        class="detail__comments__item"
+        *ngFor="let comment of feedback.comments"
+      >
+        <app-comments [comment]="comment"></app-comments>
+      </li>
+    </ul>
+  </div>
 
   <div class="comment">
     <h3 class="comment__title">Add Comment</h3>

@@ -1,0 +1,39 @@
+<div class="comment">
+  <img
+    class="comment__img"
+    [src]="'../../../assets/images/' + comment.userInfo.id + '.png'"
+  />
+  <div class="flex-1">
+    <div class="comment__header">
+      <div>
+        <h4 class="comment__user-full">
+          {{ comment.userInfo.fullName }}
+        </h4>
+        <p class="comment__user-name">
+          {{ "@" + comment.userInfo.userName }}
+        </p>
+      </div>
+      <button (click)="toggleReply()" class="comment__btn-reply">Reply</button>
+    </div>
+    <p class="comment__message">
+      {{ comment.content }}
+    </p>
+
+    <div
+      class="comment__textarea-wrap"
+      [class.comment__textarea-wrap-show]="activeComment"
+    >
+      <textarea
+        class="comment__textarea"
+        placeholder="your reply"
+        [formControl]="reply"
+      ></textarea>
+      <button
+        class="comment__btn-send"
+        [class.comment__btn-send-active]="reply.valid"
+      >
+        <mat-icon class="comment__send-icon">send</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
