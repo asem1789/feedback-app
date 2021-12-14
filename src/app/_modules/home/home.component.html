@@ -26,6 +26,7 @@
       <app-feedback-card
         *ngFor="let feed of feedbackData | sortBy: sorted"
         [feedback]="feed"
+        [commentsLen]="getLength(feed.comments || [])"
         class="home__card"
       ></app-feedback-card>
     </div>

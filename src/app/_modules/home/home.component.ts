@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getLengthOfComments } from 'src/app/helper/comments';
 import { Feedback } from 'src/app/models/feedback';
 import { FeedbackService } from 'src/app/_services/feedback.service';
 
@@ -28,5 +29,9 @@ export class HomeComponent implements OnInit {
 
   sortBy(value: any) {
     this.sorted = value;
+  }
+
+  getLength(comments: any[]) {
+    return getLengthOfComments(comments);
   }
 }

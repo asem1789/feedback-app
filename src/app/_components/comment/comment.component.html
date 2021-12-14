@@ -1,4 +1,4 @@
-<div class="comment">
+<div class="comment comment-block">
   <img
     class="comment__img"
     [src]="'../../../assets/images/' + comment.userInfo.id + '.png'"
@@ -29,6 +29,7 @@
         [formControl]="reply"
       ></textarea>
       <button
+        (click)="postReply()"
         class="comment__btn-send"
         [class.comment__btn-send-active]="reply.valid"
       >
@@ -36,4 +37,10 @@
       </button>
     </div>
   </div>
+</div>
+<div *ngIf="comment.replies" style="margin-left: 3rem">
+  <app-comment
+    *ngFor="let comment of comment.replies"
+    [comment]="comment"
+  ></app-comment>
 </div>
