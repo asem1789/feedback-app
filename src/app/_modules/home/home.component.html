@@ -11,24 +11,36 @@
   </div>
 
   <div class="home-nav__side" [class.home-nav__side-animate]="isSideOpen">
-    <app-filter-card></app-filter-card>
+    <app-filter-card (category)="filterBy($event)"></app-filter-card>
     <app-roadmap-card></app-roadmap-card>
   </div>
 
   <div class="home__left">
     <app-logo-card></app-logo-card>
-    <app-filter-card></app-filter-card>
+    <app-filter-card (category)="filterBy($event)"></app-filter-card>
     <app-roadmap-card></app-roadmap-card>
   </div>
   <div class="home__right">
-    <app-suggest-bar (option)="sortBy($event)"></app-suggest-bar>
+    <app-suggest-bar
+      [feedsNum]="feedbackData.length"
+      (option)="sortBy($event)"
+    ></app-suggest-bar>
     <div class="home__cards">
-      <app-feedback-card
-        *ngFor="let feed of feedbackData | sortBy: sorted"
-        [feedback]="feed"
-        [commentsLen]="getLength(feed.comments || [])"
-        class="home__card"
-      ></app-feedback-card>
+      <ng-container
+        *ngIf="feedbackData | filterBy: filterItem:'category' as feeds"
+      >
+        <app-feedback-card
+          *ngFor="let feed of feeds | sortBy: sorted"
+          [feedback]="feed"
+          [commentsLen]="getLength(feed.comments || [])"
+          class="home__card"
+        ></app-feedback-card>
+        <div *ngIf="feeds.length === 0" class="message-box">
+          <p class="message-box__title">
+            There is no <span>{{ filterItem | uppercase }}</span> Feedback yet!!
+          </p>
+        </div>
+      </ng-container>
     </div>
     <div *ngIf="isSideOpen" (click)="isSideOpen = false" class="overlay"></div>
   </div>

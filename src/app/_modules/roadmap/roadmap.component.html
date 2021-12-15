@@ -50,7 +50,7 @@
         >
           <app-feedback-card
             [type]="'road'"
-            *ngFor="let feed of feedbackData | filterBy: 'planned'"
+            *ngFor="let feed of feedbackData | filterBy: 'planned':'status'"
             [feedback]="feed"
           ></app-feedback-card>
         </div>
@@ -60,7 +60,7 @@
         >
           <app-feedback-card
             [type]="'road'"
-            *ngFor="let feed of feedbackData | filterBy: 'in-progress'"
+            *ngFor="let feed of feedbackData | filterBy: 'in-progress':'status'"
             [feedback]="feed"
           ></app-feedback-card>
         </div>
@@ -70,7 +70,7 @@
         >
           <app-feedback-card
             [type]="'road'"
-            *ngFor="let feed of feedbackData | filterBy: 'live'"
+            *ngFor="let feed of feedbackData | filterBy: 'live':'status'"
             [feedback]="feed"
           ></app-feedback-card>
         </div>

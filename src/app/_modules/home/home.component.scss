@@ -41,6 +41,7 @@
   &__right {
     flex: 1;
     position: relative;
+    min-height: 40rem;
   }
 
   &__cards {
@@ -135,5 +136,20 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.message-box {
+  text-align: center;
+  padding-top: 4rem;
+
+  &__title{
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: var(--color-accent);
+
+    span {
+      font-weight: 700;
+    }
+  }
 }
 

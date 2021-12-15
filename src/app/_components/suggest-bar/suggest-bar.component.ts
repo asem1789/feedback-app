@@ -5,6 +5,7 @@ import {
   Output,
   ViewChild,
   EventEmitter,
+  Input,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { SortTypes } from 'src/app/models/sort-types';
@@ -15,6 +16,7 @@ import { SortTypes } from 'src/app/models/sort-types';
   styleUrls: ['./suggest-bar.component.scss'],
 })
 export class SuggestBarComponent implements OnInit {
+  @Input() feedsNum: number = 0;
   @Output() option = new EventEmitter();
   OPTIONS = [
     { text: 'Most Upvotes', value: 'most-upvotes' },

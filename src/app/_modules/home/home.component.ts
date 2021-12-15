@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   isSideOpen: boolean = false;
   feedbackData: Feedback[] = [];
   sorted: string = 'most-upvotes';
+  filterItem: string = 'all';
 
   constructor(private feedService: FeedbackService) {}
 
@@ -29,6 +30,10 @@ export class HomeComponent implements OnInit {
 
   sortBy(value: any) {
     this.sorted = value;
+  }
+
+  filterBy(value: string) {
+    this.filterItem = value;
   }
 
   getLength(comments: any[]) {

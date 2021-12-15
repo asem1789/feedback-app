@@ -22,7 +22,6 @@ export class FeedbackService {
       })
       .catch((err) => {
         this.feedbackChange.error(err);
-        console.log('error fetch data: ', err);
       });
   }
 
@@ -38,6 +37,26 @@ export class FeedbackService {
         return resolve({ status: 'success' });
       }, 500);
     });
+  }
+
+  editFeedback(feedId: string, obj: any) {
+    const updateFeedbacks = this.feedbacks.map((el) => {
+      if (el.id === feedId) {
+        el = { ...el, ...obj };
+      }
+
+      return el;
+    });
+
+    this.feedbacks = updateFeedbacks;
+  }
+
+  deleteFeedback(feedId: string) {
+    const updateFeedbacks = this.feedbacks.filter((el) => {
+      return el.id !== feedId;
+    });
+
+    this.feedbacks = updateFeedbacks;
   }
 
   addReplyToComment(feedId: string, parentId: string, content: string) {

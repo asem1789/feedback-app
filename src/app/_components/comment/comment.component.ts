@@ -21,9 +21,7 @@ export class CommentComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-    // console.log(this.comment);
-  }
+  ngOnInit(): void {}
 
   toggleReply() {
     this.activeComment = !this.activeComment;

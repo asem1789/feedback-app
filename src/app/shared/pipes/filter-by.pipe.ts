@@ -5,10 +5,14 @@ import { Feedback } from 'src/app/models/feedback';
   name: 'filterBy',
 })
 export class FilterByPipe implements PipeTransform {
-  transform(items: Feedback[], status: string): any[] {
-    if (items.length <= 0 || !status) {
+  transform(items: Feedback[], value: string, key: string): any[] {
+    if (key === 'category' && value === 'all') {
       return items;
     }
-    return items.filter((el) => el.status === status);
+
+    if (items.length <= 0 || !value) {
+      return items;
+    }
+    return items.filter((el) => el[key as keyof Feedback] === value);
   }
 }

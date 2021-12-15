@@ -12,6 +12,7 @@ import { FeedbackService } from 'src/app/_services/feedback.service';
 export class CreateFeedbackComponent implements OnInit {
   options = ['ui', 'ux', 'enhancement', 'bug', 'feature'];
   isEdit: boolean = false;
+  feedbackId!: string;
 
   feedbackForm = this.fb.group({
     title: ['', Validators.required],
@@ -30,6 +31,7 @@ export class CreateFeedbackComponent implements OnInit {
     this.route.paramMap.subscribe((params) => {
       let idParam = params.get('id');
       if (idParam) {
+        this.feedbackId = idParam;
         let feeds = this.feedbackService.getAllFeedback();
         if (feeds) {
           let feed = this.getFeedbackById(feeds, idParam);
@@ -63,9 +65,6 @@ export class CreateFeedbackComponent implements OnInit {
   onSubmit() {
     if (this.feedbackForm.invalid) return;
 
-    /**
-     * @Make_condition_based_on_isEdit
-     */
     let data: Feedback = {
       ...this.feedbackForm.value,
       id: `${Date.now() + 1}`,
@@ -77,6 +76,16 @@ export class CreateFeedbackComponent implements OnInit {
     this.feedbackService.addFeedback(data).then(() => {
       this.router.navigate(['/']);
     });
+  }
+
+  editFeedback() {
+    this.feedbackService.editFeedback(this.feedbackId, this.feedbackForm.value);
+    this.router.navigate(['/']);
+  }
+
+  deleteFeedback() {
+    this.feedbackService.deleteFeedback(this.feedbackId);
+    this.router.navigate(['/']);
   }
 
   get f() {

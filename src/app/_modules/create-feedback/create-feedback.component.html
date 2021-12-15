@@ -82,11 +82,17 @@
         </div>
       </div>
       <div class="create-feed__controls">
-        <button *ngIf="isEdit" type="button" class="btn btn__warn auto-r">
+        <button
+          *ngIf="isEdit"
+          (click)="deleteFeedback()"
+          type="button"
+          class="btn btn__warn auto-r"
+        >
           Delete
         </button>
         <button type="reset" class="btn btn__secondary">Cancel</button>
         <button
+          *ngIf="!isEdit"
           type="submit"
           class="btn btn__primary"
           [ngClass]="{
@@ -94,6 +100,17 @@
           }"
         >
           Add Comment
+        </button>
+        <button
+          *ngIf="isEdit"
+          (click)="editFeedback()"
+          type="button"
+          class="btn btn__primary"
+          [ngClass]="{
+            'btn__disable btn__disable--primary': feedbackForm.invalid
+          }"
+        >
+          Edit Comment
         </button>
       </div>
     </form>
