@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { getLengthOfComments } from 'src/app/helper/comments';
 import { Feedback } from 'src/app/models/feedback';
 
 @Component({
@@ -10,6 +11,7 @@ import { Feedback } from 'src/app/models/feedback';
 export class FeedbackCardComponent implements OnInit {
   @Input() feedback!: Feedback;
   @Input() type!: string;
+  @Input() commentsLen: number = 0;
   countVotes!: number;
   voteClicked: boolean = false;
 
@@ -30,10 +32,6 @@ export class FeedbackCardComponent implements OnInit {
   }
 
   goDetail() {
-    // this.router.navigate([""])
-    // if (this.feedback.id) {
     this.router.navigate(['feedback', this.feedback.id]);
-    //   console.log('Goo Feedback Details', this.feedback);
-    // }
   }
 }

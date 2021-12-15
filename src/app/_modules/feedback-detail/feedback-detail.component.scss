@@ -46,6 +46,29 @@
   &__count {
     padding-left: 1rem;
   }
+
+}
+
+.detail__comments {
+  background-color: #fff;
+  border-radius: 5px;
+  color: #647196;
+  font-size: 1.4rem;
+  margin-top: 3rem;
+  padding: 2rem;
+}
+
+.detail__comments__title {
+  color: var(--color-accent);
+  margin-bottom: 3rem;
+  font-weight: 700;  
+}
+
+.detail__comments__item {
+  // padding: 2rem .2rem 3rem 0;
+  &:not(:last-child){
+    border-bottom: 1px solid #64719652;
+  }
 }
 
 app-comments {

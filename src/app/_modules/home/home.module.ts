@@ -12,6 +12,8 @@ import { ClickOutsideDirective } from 'src/app/shared/directives/click-outside.d
 import { CommonDirectivesModule } from 'src/app/shared/directives/common-directives.module';
 import { SortByPipe } from 'src/app/shared/pipes/sort-by.pipe';
 import { FeedbackCardModule } from 'src/app/_components/feedback-card/feedback-card.module';
+import { FilterByPipe } from 'src/app/shared/pipes/filter-by.pipe';
+import { CommonPipesModule } from 'src/app/shared/pipes/common-pipes.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,6 @@ import { FeedbackCardModule } from 'src/app/_components/feedback-card/feedback-c
     FilterCardComponent,
     RoadmapCardComponent,
     SuggestBarComponent,
-    SortByPipe,
   ],
   imports: [
     CommonModule,
@@ -28,6 +29,7 @@ import { FeedbackCardModule } from 'src/app/_components/feedback-card/feedback-c
     HomeRoutingModule,
     CommonDirectivesModule,
     FeedbackCardModule,
+    CommonPipesModule,
   ],
 })
 export class HomeModule {}

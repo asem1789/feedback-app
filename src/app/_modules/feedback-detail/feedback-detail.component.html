@@ -9,13 +9,23 @@
     </button>
   </div>
   <div class="detail__content" *ngIf="!!feedback">
-    <app-feedback-card [feedback]="feedback"></app-feedback-card>
+    <app-feedback-card
+      [commentsLen]="commentLength"
+      [feedback]="feedback"
+    ></app-feedback-card>
   </div>
 
-  <app-comments
-    *ngIf="feedback && feedback.comments"
-    [comments]="feedback.comments"
-  ></app-comments>
+  <div *ngIf="feedback && feedback.comments" class="detail__comments">
+    <h3 class="detail__comments__title">{{ commentLength }} / Comments</h3>
+    <ul class="detail__comments__list">
+      <li
+        class="detail__comments__item"
+        *ngFor="let comment of feedback.comments"
+      >
+        <app-comment [comment]="comment"></app-comment>
+      </li>
+    </ul>
+  </div>
 
   <div class="comment">
     <h3 class="comment__title">Add Comment</h3>
@@ -34,6 +44,7 @@
     <div class="comment__footer">
       <p class="comment__count">{{ comment.value.length }} / 250</p>
       <button
+        (click)="postComment()"
         type="button"
         class="btn btn__primary"
         [ngClass]="{

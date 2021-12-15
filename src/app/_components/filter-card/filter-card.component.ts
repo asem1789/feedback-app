@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-filter-card',
@@ -6,10 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./filter-card.component.scss'],
 })
 export class FilterCardComponent {
+  @Output() category = new EventEmitter();
+
   OPTIONS = ['All', 'UI', 'UX', 'Enhancement', 'Bug', 'Feature'];
   selected: string = 'All';
 
   selectOption(option: string) {
     this.selected = option;
+    this.category.emit(option.toLowerCase());
   }
 }
