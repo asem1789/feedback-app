@@ -1,5 +1,5 @@
 # Feedback project
-    this project is one of challenges in [Frontend mentor](https://www.frontendmentor.io/challenges/product-feedback-app-wbvUYqjR6). website. built in Angular
+this project is one of challenges in [Frontend mentor](https://www.frontendmentor.io/challenges/product-feedback-app-wbvUYqjR6). website. built in Angular
 
 ## Demo
   - [Feedback-app](https://asem1789.github.io/feedback-app/)
