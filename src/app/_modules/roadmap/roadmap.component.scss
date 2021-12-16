@@ -3,6 +3,7 @@
 
 .road {
   padding-top: 8rem;
+  padding-bottom: 8rem;
 
   @include respond(mobile){
     padding-top: 0;

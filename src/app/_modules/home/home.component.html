@@ -11,7 +11,7 @@
   </div>
 
   <div class="home-nav__side" [class.home-nav__side-animate]="isSideOpen">
-    <app-filter-card (category)="filterBy($event)"></app-filter-card>
+    <app-filter-card (category)="filterBy($event, true)"></app-filter-card>
     <app-roadmap-card></app-roadmap-card>
   </div>
 

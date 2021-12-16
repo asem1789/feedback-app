@@ -1,5 +1,6 @@
-<div *ngIf="!type" class="feed-card" (click)="goDetail()">
+<div *ngIf="!type" class="feed-card">
   <button
+    #vote
     (click)="toggleVote()"
     class="feed-card__vote feed-card__vote--vert"
     [class.feed-card__btn-active]="voteClicked"
@@ -23,7 +24,6 @@
 </div>
 
 <div
-  (click)="goDetail()"
   *ngIf="type"
   class="feed-card-road"
   [ngClass]="{
@@ -49,6 +49,7 @@
   </div>
   <div class="feed-card__footer">
     <button
+      #vote
       (click)="toggleVote()"
       class="feed-card__vote"
       [class.feed-card__btn-active]="voteClicked"

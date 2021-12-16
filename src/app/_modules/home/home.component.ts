@@ -32,8 +32,11 @@ export class HomeComponent implements OnInit {
     this.sorted = value;
   }
 
-  filterBy(value: string) {
+  filterBy(value: string, isSide: boolean = false) {
     this.filterItem = value;
+    if (isSide) {
+      this.isSideOpen = false;
+    }
   }
 
   getLength(comments: any[]) {
