@@ -78,11 +78,6 @@
   align-items: center;
   transition: all .4s;
 
-  @include respond(small){
-    position: absolute;
-    bottom: 2rem;
-  }
-  
 
   &:hover,
   &:active {
@@ -200,5 +195,14 @@
   border-top-color: #62bcfa;
   .indicator {
     background-color: #62bcfa;
+  }
+}
+
+.feed-card {
+  .feed-card__vote {
+    @include respond(small){
+      position: absolute;
+      bottom: 2rem;
+    }
   }
 }
