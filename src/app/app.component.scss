@@ -2,30 +2,18 @@
 
 .app {  
   max-width: 1120px;
+  min-height: calc(100vh - 7rem); // footer 7rem
   margin: 0 auto;
   font-size: 1.6rem;
 
   @include respond(tablet){
     max-width: 780px;
   }
-}
 
-.footer {
-  height: 7rem;
-  background-color: #373f68;
-  color: #fff;
-  font-size: 1.6rem;
-  box-shadow: 0 -3px 4rem rgba(0,0,0,.4);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  
-
-  &__link{
-    color: #fff;
-    font-weight: 600;
+  @include respond(small){
+    font-size: 1.3rem;
   }
 }
+
+
 

@@ -11,6 +11,11 @@
   align-items: center;
   gap: 1.5rem;
 
+  @media (max-width: 500px){
+    padding: 1rem 1.3rem;
+    gap: .6rem;
+  }
+
   @include respond(mobile){
     border-radius: 0;
   }
@@ -44,6 +49,12 @@
     .label {
       font-size: 1.6rem;
       margin-right: 1rem;
+
+      @media (max-width: 500px){
+        font-size: 1.2rem;
+        margin-right: .5rem;
+      }
+      
     }
 
     .select-value {
@@ -51,6 +62,10 @@
       font-weight: 600;
       font-size: 1.6rem;
       display: inline-block;
+
+      @media (max-width: 500px){
+        font-size: 1.2rem;
+      }
 
     }
   }
@@ -117,4 +132,11 @@
 .list-show {
   opacity: 1;
   transform: translateY(0);
+}
+
+.suggest-bar-btn {
+  @media (max-width: 500px){
+    font-size: 1.3rem;
+    padding: .8rem 1rem;
+  }
 }

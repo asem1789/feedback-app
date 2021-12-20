@@ -1,0 +1,40 @@
+@import "~/src/assets/scss/mixins";
+
+.footer {
+  height: 7rem;
+  background-color: #373f68;
+  color: #fff;
+  font-size: 1.6rem;
+  box-shadow: 0 -3px 4rem rgba(0,0,0,.4);
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include respond(small){
+    font-size: 1.3rem;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    
+
+    @media (max-width: 420px){
+      flex-direction: column;
+      gap: .8rem;
+      align-items: flex-start;
+    }
+  }
+
+
+  
+
+  &__link{
+    color: #fff;
+    font-weight: 600;
+  }
+}

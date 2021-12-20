@@ -18,6 +18,8 @@ export class RoadmapComponent implements OnInit {
   ngOnInit(): void {
     this.feedbackData = this.feedService.getAllFeedback() || [];
 
+    this.isSmall = window.innerWidth >= 777 ? false : true;
+
     this.feedService.feedbackChange.subscribe((feeds) => {
       this.feedbackData = feeds;
     });

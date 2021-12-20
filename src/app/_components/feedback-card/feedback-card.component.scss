@@ -1,3 +1,5 @@
+@import "~/src/assets/scss/mixins";
+
 .feed-card {
   width: 100%;
   padding: 2rem;
@@ -8,10 +10,15 @@
   cursor: pointer;
   display: flex;
   gap: 3rem;
+  position: relative;
   
   &:hover {
     transform: scale(1.02);
     box-shadow: 1px 3px 20px rgba(0,0,0,.1);
+  }
+
+  @include respond(small){
+    flex-direction: column;
   }
 
   &__content {
@@ -40,6 +47,10 @@
     display: flex;
     align-items: center;
     gap: .6rem;
+
+    @include respond(small){
+      align-self: flex-end;
+    }
     
     &-icon {      
       color: #cccccc;
@@ -66,6 +77,11 @@
   display: flex;
   align-items: center;
   transition: all .4s;
+
+  @include respond(small){
+    position: absolute;
+    bottom: 2rem;
+  }
   
 
   &:hover,
@@ -76,6 +92,10 @@
   &--vert {
     flex-direction: column;
     align-self: flex-start;
+
+    @include respond(small){
+      flex-direction: row;
+    }
   }
   
  
@@ -84,6 +104,10 @@
     font-size: 1.6rem;
     font-weight: 600;
     color: var(--text-accent-dark);
+
+    @include respond(small){
+      font-size: 1.3rem;
+    }
 
   }
 

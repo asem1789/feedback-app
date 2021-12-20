@@ -72,6 +72,10 @@
     radial-gradient(farthest-side at 0% 0%, #7ab3f9, transparent),
     radial-gradient(farthest-side at 100% 100%, #f49f85, transparent);
 
+  @media (max-width: 500px){
+    padding: 1rem 1.3rem;
+  }
+
   display: flex;
   justify-content: space-between;
   align-items: center;
